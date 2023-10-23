@@ -12,7 +12,7 @@ bool promptYesNo(std::string text)
     do
     {
         std::cout << text << std::endl;
-        std::cout << "Enter Y for yes or N for no" << std::endl;
+        std::cout << "Enter Y for yes or N for no\n" << std::endl;
         std::cin >> value;
 
         // Convert to lowercase
@@ -26,7 +26,7 @@ bool promptYesNo(std::string text)
         if (value == "n")   YesNO = false;
 
         //checks if input is = to y & n if not invalid input
-        if(value != "y" && value != "n");
+        if(value != "y" && value != "n") 
         {
             std::cout << "\ninvalid input. " << std::endl;
         }

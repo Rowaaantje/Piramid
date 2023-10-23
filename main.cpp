@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include <sstream>
+
 
 #include "main.h"
 
@@ -10,11 +12,10 @@
 class Input
 {
 public:
-    void getInput()
-    {
-        int space, rows, age, minimumAge = 12, maxAge = 150;;
+    void getInput(){
+        int space, rows, age, minimumAge = 12, maxAge = 150;
         std::string name;
-        
+        bool isNumeric = false;
 
 #pragma region Title
         std::cout << "      _                   _    _                  " << std::endl;
@@ -24,18 +25,28 @@ public:
         std::cout << "|_|                                |___|          " << std::endl;
 #pragma endregion
 #pragma region userInfo
-        std::cout << "\nWelcome, what's your name?\n"<< std::endl;
-        std::cin >> name;
-        std::cout << "Welcome " << name << "\n"<< std::endl;
-
-       while (true) {
-        // std::cout << "What's your age? You must be over " << minimumAge << " years old." << std::endl; working code temp
-        // std::cin >> age;
-        // std::cin.ignore(); // Clear the input buffer
-        // std::cout << "Your age " << age << "\n" << std::endl;
-
+        
         do{
-            std::cout << "What's your age? You must be over " << minimumAge << " years old." << std::endl;
+            std::cout << "\nWelcome, what's your name?\n"<< std::endl;
+            std::getline(std::cin, name);
+
+            // Try to convert the input to a number
+            std::istringstream iss(name);
+            double number;
+            if (iss >> number){
+                // Input is a number
+                std::cout << "Invalid Input cant enter " << name << " as a name " << std::endl;
+                isNumeric = true;
+            } else{
+                //input is not numeric 
+                isNumeric = false;
+            }
+        }while (isNumeric);
+            std::cout << "Welcome " << name << "\n"<< std::endl;
+
+       while (true){
+        do{
+            std::cout << "What's your age? You must be over " << minimumAge << " years old.\n" << std::endl;
             std::cin >> age;
             std::cin.ignore(); // Clear the input buffer
             
@@ -43,11 +54,10 @@ public:
                 break;
             }
             if (age > maxAge){
-                std::cout << "\ni dont know if i believe that your " << age << " years old try again\n" << std::endl;
+                std::cout << "WAUW YOUR " << age << " YEARS OLD but i dont believe you\n" << std::endl;
             }
         }while (age > maxAge); // loop
-        
-        std::cout << "Your age " << age << "\n" << std::endl;
+            std::cout << "Your age " << age << "\n" << std::endl;
             
             //age check whether the user is older tha minimumAge if so you can proceed else exit program
             if (age < minimumAge){
@@ -86,8 +96,6 @@ public:
         #pragma endregion
     }
 };
-
-//yesno
 
 int main()
 {
