@@ -25,7 +25,11 @@ bool promptYesNo(std::string text)
         if (value == "y")   YesNO = true;
         if (value == "n")   YesNO = false;
 
-        
+        //checks if input is = to y & n if not invalid input
+        if(value != "y" && value != "n");
+        {
+            std::cout << "\ninvalid input. " << std::endl;
+        }
         
 // Check for values
         // if (value == "y" || value == "yes") YesNO = true;
@@ -35,11 +39,10 @@ bool promptYesNo(std::string text)
         
 
     } while (value != "y" && value != "n"); // loop
-    
 return YesNO;
 }
 
-
+//in Progres :/
 class CommandHandler {
 public:
     void processCommand() {
@@ -54,6 +57,7 @@ public:
             std::cout << "1. Option 1\n";
             std::cout << "2. Option 2\n";
             std::cout << "3. Option 3\n";
+
             // Add more options as needed
         } else {
             std::cout << "You entered: " << userIput << std::endl;

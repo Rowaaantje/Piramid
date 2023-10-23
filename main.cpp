@@ -12,9 +12,7 @@ class Input
 public:
     void getInput()
     {
-        int space, rows, age, minimumAge = 12;
-
-        int ageCheck = 0;//.................................................................temp
+        int space, rows, age, minimumAge = 12, maxAge = 150;;
         std::string name;
         
 
@@ -31,28 +29,28 @@ public:
         std::cout << "Welcome " << name << "\n"<< std::endl;
 
        while (true) {
-
         // std::cout << "What's your age? You must be over " << minimumAge << " years old." << std::endl; working code temp
         // std::cin >> age;
         // std::cin.ignore(); // Clear the input buffer
         // std::cout << "Your age " << age << "\n" << std::endl;
-
 
         do{
             std::cout << "What's your age? You must be over " << minimumAge << " years old." << std::endl;
             std::cin >> age;
             std::cin.ignore(); // Clear the input buffer
             
-            if(age >! ageCheck){
+            if (age < maxAge){//age >= ageCheck ||
                 break;
             }
-        }while (age < ageCheck); // loop
+            if (age > maxAge){
+                std::cout << "\ni dont know if i believe that your " << age << " years old try again\n" << std::endl;
+            }
+        }while (age > maxAge); // loop
         
         std::cout << "Your age " << age << "\n" << std::endl;
             
-            
             //age check whether the user is older tha minimumAge if so you can proceed else exit program
-            if (age < minimumAge) {
+            if (age < minimumAge){
                 std::cout << "Are you sure you're " << age << " years old?" << std::endl;
                 bool continueProgram = promptYesNo("");
 
@@ -62,7 +60,7 @@ public:
                     std::cout << age << " years old is too young. Exiting the program." << std::endl;
                     exit(0);
                 }
-            } else {
+            } else{
                 break; // Exit the loop if the age is acceptable
             }
         }
