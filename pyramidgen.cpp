@@ -67,6 +67,8 @@ void pyramidgen::getInput()
     std::string name;
     bool isNumeric = false;
         
+    if(USERINFO)
+    {
         do{
             std::cout << "\nWelcome, what's your name?\n"<< std::endl;
             std::getline(std::cin, name);
@@ -115,6 +117,7 @@ void pyramidgen::getInput()
                 break; // Exit the loop if the age is acceptable
             }
         }
+    }
         std::cout << "Enter Number of rows" << std::endl;
         std::cin >> rows;
 
@@ -136,13 +139,16 @@ void pyramidgen::getInput()
 
 int main()
 {
-    std::cout << " _______  __   __  ______    _______  __   __  ___   ______     _______  _______  __    _ " << std::endl;
-    std::cout << "|       ||  | |  ||    _ |  |   _   ||  |_|  ||   | |      |   |       ||       ||  |  | |" << std::endl;
-    std::cout << "|    _  ||  |_|  ||   | ||  |  |_|  ||       ||   | |  _    |  |    ___||    ___||   |_| |" << std::endl;
-    std::cout << "|   |_| ||       ||   |_||_ |       ||       ||   | | | |   |  |   | __ |   |___ |       |" << std::endl;
-    std::cout << "|    ___||_     _||    __  ||       ||       ||   | | |_|   |  |   ||  ||    ___||  _    |" << std::endl;
-    std::cout << "|   |      |   |  |   |  | ||   _   || ||_|| ||   | |       |  |   |_| ||   |___ | | |   |" << std::endl;
-    std::cout << "|___|      |___|  |___|  |_||__| |__||_|   |_||___| |______|   |_______||_______||_|  |__|" << std::endl;
+    if(TITLE)
+    {
+        std::cout << " _______  __   __  ______    _______  __   __  ___   ______     _______  _______  __    _ " << std::endl;
+        std::cout << "|       ||  | |  ||    _ |  |   _   ||  |_|  ||   | |      |   |       ||       ||  |  | |" << std::endl;
+        std::cout << "|    _  ||  |_|  ||   | ||  |  |_|  ||       ||   | |  _    |  |    ___||    ___||   |_| |" << std::endl;
+        std::cout << "|   |_| ||       ||   |_||_ |       ||       ||   | | | |   |  |   | __ |   |___ |       |" << std::endl;
+        std::cout << "|    ___||_     _||    __  ||       ||       ||   | | |_|   |  |   ||  ||    ___||  _    |" << std::endl;
+        std::cout << "|   |      |   |  |   |  | ||   _   || ||_|| ||   | |       |  |   |_| ||   |___ | | |   |" << std::endl;
+        std::cout << "|___|      |___|  |___|  |_||__| |__||_|   |_||___| |______|   |_______||_______||_|  |__|" << std::endl;
+    }
 
     pyramidgen obj;
     obj.getInput();

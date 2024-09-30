@@ -5,6 +5,10 @@
 #include <string>
 #include <sstream>
 
+// You can use these to enable or disable certain functionalities 
+#define TITLE true 
+#define USERINFO true
+
 class pyramidgen {
 public:
     void getInput();
