@@ -1,10 +1,6 @@
 all:
-	g++ main.cpp methods.cpp main.h -o program
+	g++ pyramidgen.cpp pyramidgen.h -o program
 
 	./program
 clean:
 	rm program
-
-
-
-

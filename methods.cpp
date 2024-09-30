@@ -2,7 +2,6 @@
 #include <string>
 #include <cctype>  // for tolower
 
-#include "main.h"
 
 bool promptYesNo(std::string text)
 {
